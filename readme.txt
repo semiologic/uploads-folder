@@ -1,7 +1,7 @@
 === Uploads Folder ===
 Contributors: Denis-de-Bernardy, Semiologic
 Donate link: http://buy.semiologic.com/drink
-Tags: uploads, uploads-folder, uploads folder, cms
+Tags: uploads, uploads-folder, uploads folder, cms, semiologic
 Requires at least: 2.5
 Tested up to: 2.7
 Stable tag: trunk
