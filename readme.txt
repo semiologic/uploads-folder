@@ -1,10 +1,12 @@
 === Uploads Folder ===
-Contributors: Denis-de-Bernardy
+Contributors: Denis-de-Bernardy, Mike_Koepke
 Donate link: http://www.semiologic.com/partners/
 Tags: uploads, uploads-folder, uploads folder, cms, semiologic
 Requires at least: 3.1
-Tested up to: 3.5
+Tested up to: 3.5.1
 Stable tag: trunk
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Changes your uploads subfolders to more natural paths that are unique to posts and pages.
 
