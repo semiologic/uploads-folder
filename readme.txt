@@ -30,6 +30,10 @@ If you require more dedicated assistance, consider using [Semiologic Pro](http:/
 
 == Change Log ==
 
+= 2.1.1 =
+
+- Latest uploads-folder library was not included in previous release
+
 = 2.1 =
 
 - WP 3.5 compat
