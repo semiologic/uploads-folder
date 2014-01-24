@@ -30,6 +30,11 @@ If you require more dedicated assistance, consider using [Semiologic Pro](http:/
 
 == Change Log ==
 
+= 2.3 =
+
+- Fix bug where image path may not be set to the correct uploads folder upon saving a revision to a post or page.
+- Performed some code refactoring.
+
 = 2.2.1 =
 
 - WP 3.8 compat
