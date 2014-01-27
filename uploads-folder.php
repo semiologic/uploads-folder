@@ -3,7 +3,7 @@
 Plugin Name: Uploads Folder
 Plugin URI: http://www.semiologic.com/software/uploads-folder/
 Description: Changes your uploads' subfolders to a more natural yyyy/mm/post-slug for posts (based on the post's date rather than the current date), and page-slug/subpage-slug for static pages (based on the page's position in the hierarchy).
-Version: 2.3
+Version: 2.3.1
 Author: Denis de Bernardy & Mike Koepke
 Author URI: http://www.getsemiologic.com
 Text Domain: uploads-folder
@@ -49,11 +49,8 @@ class sem_uploads_folder {
 
 	function filter($uploads, $post_id = null) {
 		if ( !$post_id ) {
-			if ( in_the_loop() ) {
-				$post_id = get_the_ID();
-			} else {
-				global $wp_query;
-				$post_id = $wp_query->get_queried_object_id();
+			if ( in_the_loop() && is_singular() ) {
+					$post_id = get_the_ID();
 			}
 
 			if ( !$post_id ) {

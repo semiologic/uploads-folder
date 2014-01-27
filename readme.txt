@@ -30,6 +30,10 @@ If you require more dedicated assistance, consider using [Semiologic Pro](http:/
 
 == Change Log ==
 
+= 2.3.1 =
+
+- Fix Fatal error: Call to a member function get_queried_object_id() on a non-object on line 56 error.
+
 = 2.3 =
 
 - Fix bug where image path may not be set to the correct uploads folder upon saving a revision to a post or page.
