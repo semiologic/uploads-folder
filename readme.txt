@@ -30,6 +30,10 @@ If you require more dedicated assistance, consider using [Semiologic Pro](http:/
 
 == Change Log ==
 
+= 2.4 =
+
+- Code refactoring
+
 = 2.3.1 =
 
 - Fix Fatal error: Call to a member function get_queried_object_id() on a non-object on line 56 error.

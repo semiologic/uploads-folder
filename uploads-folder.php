@@ -3,7 +3,7 @@
 Plugin Name: Uploads Folder
 Plugin URI: http://www.semiologic.com/software/uploads-folder/
 Description: Changes your uploads' subfolders to a more natural yyyy/mm/post-slug for posts (based on the post's date rather than the current date), and page-slug/subpage-slug for static pages (based on the page's position in the hierarchy).
-Version: 2.3.1
+Version: 2.4 dev
 Author: Denis de Bernardy & Mike Koepke
 Author URI: http://www.getsemiologic.com
 Text Domain: uploads-folder
@@ -21,6 +21,7 @@ This software is copyright Denis de Bernardy & Mike Koepke, and is distributed u
 if ( !defined('sem_uploads_folder_debug') )
 	define('sem_uploads_folder_debug', false);
 
+
 /**
  * uploads_folder
  *
@@ -28,16 +29,91 @@ if ( !defined('sem_uploads_folder_debug') )
  **/
 
 class sem_uploads_folder {
-    /**
-     * uploads_folder()
-     */
+	/**
+	 * Plugin instance.
+	 *
+	 * @see get_instance()
+	 * @type object
+	 */
+	protected static $instance = NULL;
+
+	/**
+	 * URL to this plugin's directory.
+	 *
+	 * @type string
+	 */
+	public $plugin_url = '';
+
+	/**
+	 * Path to this plugin's directory.
+	 *
+	 * @type string
+	 */
+	public $plugin_path = '';
+
+	/**
+	 * Access this plugin’s working instance
+	 *
+	 * @wp-hook plugins_loaded
+	 * @return  object of this class
+	 */
+	public static function get_instance()
+	{
+		NULL === self::$instance and self::$instance = new self;
+
+		return self::$instance;
+	}
+
+
+	/**
+	 * Loads translation file.
+	 *
+	 * Accessible to other classes to load different language files (admin and
+	 * front-end for example).
+	 *
+	 * @wp-hook init
+	 * @param   string $domain
+	 * @return  void
+	 */
+	public function load_language( $domain )
+	{
+		load_plugin_textdomain(
+			$domain,
+			FALSE,
+			$this->plugin_path . 'lang'
+		);
+	}
+
+	/**
+	 * Constructor.
+	 *
+	 *
+	 */
+
     public function __construct() {
-        add_filter('upload_dir', array($this, 'filter'));
-        add_filter('save_post', array($this, 'save_entry'));
+	    $this->plugin_url    = plugins_url( '/', __FILE__ );
+        $this->plugin_path   = plugin_dir_path( __FILE__ );
+        $this->load_language( 'uploads-folder' );
+
+	    add_action( 'plugins_loaded', array ( $this, 'init' ) );
+    }
+
+	/**
+	 * init()
+	 *
+	 * @return void
+	 **/
+
+	function init() {
+		// more stuff: register actions and filters
+		if ( is_admin() ) {
+			add_filter('upload_dir', array($this, 'filter'));
+	        add_filter('save_post', array($this, 'save_entry'));
+		}
 
         register_activation_hook(__FILE__, array($this, 'reset'));
         register_deactivation_hook(__FILE__, array($this, 'reset'));
-    }
+	}
 
     /**
 	 * filter()
@@ -400,5 +476,4 @@ class sem_uploads_folder {
 	} # reset()
 } # uploads_folder
 
-$uploads_folder = new sem_uploads_folder();
-
+$sem_uploads_folder = sem_uploads_folder::get_instance();
