@@ -30,6 +30,10 @@ If you require more dedicated assistance, consider using [Semiologic Pro](http:/
 
 == Change Log ==
 
+= 2.4.1 =
+
+- Fix localization
+
 = 2.4 =
 
 - Code refactoring
