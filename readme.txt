@@ -8,12 +8,15 @@ Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Changes your uploads subfolders to more natural paths that are unique to posts and pages.
+*Retired* - Changes your uploads subfolders to more natural paths that are unique to posts and pages.
 
 
 == Description ==
 
+This plugin has outlived its usefulness and value so no further updates will be occurring on it.
+
 The Uploads Folder plugin for WordPress changes your uploads' subfolders to a more natural yyyy/mm/dd/post-slug for posts (based on the post's date rather than the current date), and page-slug/subpage-slug for static pages (based on the page's position in the hierarchy).
+
 
 = Help Me! =
 
@@ -29,6 +32,10 @@ If you require more dedicated assistance, consider using [Semiologic Pro](http:/
 
 
 == Change Log ==
+
+= 2.4.2 =
+
+- Retirement party for this plugin!
 
 = 2.4.1 =
 
